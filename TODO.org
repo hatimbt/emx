@@ -19,3 +19,8 @@
 
 ** TODO Add testing infrastructure
    - Add CI checks for the flake
+   
+** TODO Add treesit-grammar support
+   - Implement the approach decided in DR #0002
+   - Support tree-sitter for improved syntax highlighting and editing
+   - See docs/decisions/0002-treesit-grammar-support.md for decision details

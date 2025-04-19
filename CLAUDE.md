@@ -31,3 +31,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Keep Nix as non-intrusive as possible to Emacs workflow
 - Provide sane defaults but allow easy customization
 - Document clearly where Nix ends and Elisp begins
+
+## PROJECT DOCUMENTATION
+- Decision Records (DRs) are located in `docs/decisions/`
+- Review these records to understand the reasoning behind design decisions
+- When working on a feature, check if related decisions are documented in DRs

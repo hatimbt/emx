@@ -16,12 +16,6 @@ in
       default = pkgs.emacs-pgtk;
       description = "The default Emacs derivation to use.";
     };
-
-    extraPackages = lib.mkOption {
-      type = lib.types.listOf lib.types.package;
-      default = [];
-      description = "Extra packages to install for Emacs.";
-    };
   };
 
   config = lib.mkIf cfg.enable {
