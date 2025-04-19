@@ -11,14 +11,25 @@
     # Optional: Override the default Emacs package
     # package = pkgs.emacs-pgtk;
     
-    # Additional system packages for Emacs
-    extraPackages = with pkgs; [
-      ripgrep      # For better search
-      fd           # For faster file finding
-      sqlite       # For org-roam and other packages
-      imagemagick  # For image processing
+    # Configure tree-sitter grammars
+    treesitGrammars = [
+      # Option 1: Include all available grammars
+      # "all"
+      
+      # Option 2: Select specific grammars for languages you use
+      "rust"
+      "nix"
+      "python"
     ];
   };
   
   # Other home-manager configuration...
+  
+  # You can add additional system packages separately if needed
+  home.packages = with pkgs; [
+    ripgrep      # For better search
+    fd           # For faster file finding
+    sqlite       # For org-roam and other packages
+    imagemagick  # For image processing
+  ];
 }
