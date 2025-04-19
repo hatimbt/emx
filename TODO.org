@@ -1,0 +1,21 @@
+#+TITLE: EmX TODO List
+#+DATE: 2025-04-19
+
+* Tasks
+** TODO Change default Emacs package to emacs-git-pgtk from emacs-overlay
+   - Use the latest build from emacs-overlay instead of stable emacs-pgtk
+   - This will provide the most recent Emacs 30 development version
+
+** TODO Add elpaca bootstrap code option
+   - Provide an option to include elpaca bootstrap in init.el
+   - Make it configurable/optional
+
+** TODO Add font installation
+   - Add support for fonts commonly used with Emacs
+   - Configure default font settings
+
+** TODO Improve XDG integration
+   - Ensure proper XDG compliance
+
+** TODO Add testing infrastructure
+   - Add CI checks for the flake
