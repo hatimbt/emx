@@ -28,8 +28,32 @@ let
   # Define grammar packages for inclusion in the final Emacs package
   grammarPackages = if treesitGrammars != null then [ treesitGrammars ] else [];
   
-  # Create the final Emacs package with grammars included
-  finalEmacsPackage = emacsPackages.emacsWithPackages (_: grammarPackages);
+  # Define core Emacs packages to be managed by Nix
+  # These should be stable packages or those with C dependencies
+  coreEmacsPackages = epkgs: [
+    # Core packages with C dependencies
+    epkgs.vterm
+    epkgs.pdf-tools
+
+    # Stable packages unlikely to need customization
+    epkgs.magit
+    epkgs.org
+    epkgs.use-package
+
+    # Additional stable packages
+    epkgs.with-editor
+    epkgs.transient
+    epkgs.dash
+    epkgs.s
+    epkgs.f
+  ];
+
+  # Create the final Emacs package with grammars and core packages included
+  finalEmacsPackage = emacsPackages.emacsWithPackages (epkgs:
+    grammarPackages ++ (coreEmacsPackages epkgs));
+
+  # Config source location
+  src = if cfg.localPath != null then "${cfg.localPath}/emacs" else "${../emacs}";
 in
 {
   options.programs.emacs-emx = {
@@ -52,6 +76,15 @@ in
         For all grammars: [ "all" ]
       '';
     };
+    localPath = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
+      default = null;
+      description = ''
+        Local path to your flake checkout (containing the "emacs" folder).
+        If set, Emacs will load config from this directory at runtime,
+        bypassing the immutable store copy.
+      '';
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -71,5 +104,14 @@ in
       mimeType = [ "text/plain" ];
       startupNotify = true;
     };
+
+    # Shim to load Emacs config from either local path or embedded flake source
+    home.file.".emacs.d/init.el" = {
+      text = ''
+        (setq user-emacs-directory (expand-file-name ".emacs.d" (getenv "HOME")))
+        (load "${src}/init.el")
+      '';
+    };
   };
+
 }
