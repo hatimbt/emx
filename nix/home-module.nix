@@ -10,16 +10,23 @@ let
   # Get the Emacs package set for the selected Emacs package
   emacsPackages = pkgs.emacsPackagesFor cfg.package;
   
-  # Convert grammar name strings to actual package references
-  getGrammarPackage = name: 
-    if name == "all" then
+  # Process tree-sitter grammar selections based on user-provided grammar names
+  treesitGrammars =
+    if builtins.elem "all" cfg.treesitGrammars then
+      # Include all available grammars when the special "all" name is specified
       emacsPackages.treesit-grammars.with-all-grammars
-    else
-      emacsPackages.treesit-grammars."with-${name}-grammar" or 
-        (throw "Unknown treesit grammar: ${name}");
-        
-  # Get all grammar packages based on user's selection
-  grammarPackages = map getGrammarPackage cfg.treesitGrammars;
+    else if cfg.treesitGrammars != [] then
+      # For specific grammar selections, map our simple names to package references
+      emacsPackages.treesit-grammars.with-grammars (grammars:
+        map (name:
+          grammars."tree-sitter-${name}" or
+            (throw "Unknown treesit grammar: ${name}")
+        ) cfg.treesitGrammars
+      )
+    else null;
+
+  # Define grammar packages for inclusion in the final Emacs package
+  grammarPackages = if treesitGrammars != null then [ treesitGrammars ] else [];
   
   # Create the final Emacs package with grammars included
   finalEmacsPackage = emacsPackages.emacsWithPackages (_: grammarPackages);
