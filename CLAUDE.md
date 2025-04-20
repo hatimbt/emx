@@ -33,6 +33,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Document clearly where Nix ends and Elisp begins
 
 ## PROJECT DOCUMENTATION
-- Decision Records (DRs) are located in `docs/decisions/`
+- Decision Records (DRs) are located in `.ai-assistant/decisions/`
 - Review these records to understand the reasoning behind design decisions
 - When working on a feature, check if related decisions are documented in DRs
+
+## AI ASSISTANT WORKSPACE
+- The `.ai-assistant/` directory is for Claude's notes and documentation
+- Use `.ai-assistant/journal/` to keep logs of work sessions and progress
+- Use `.ai-assistant/notes/` to maintain reference information and project understanding
+- These files are meant to provide context and continuity between sessions

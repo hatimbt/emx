@@ -19,8 +19,10 @@
    - Add support for fonts commonly used with Emacs
    - Configure default font settings
 
-** TODO Improve XDG integration
-   - Ensure proper XDG compliance
+** TODO Implement user-emacs-directory strategy
+   - Decide on approach for user-emacs-directory (see draft DR #0005)
+   - Implement XDG compliance for Emacs directories
+   - Create clean separation between config, data, and cache
 
 ** TODO Add testing infrastructure
    - Add CI checks for the flake
