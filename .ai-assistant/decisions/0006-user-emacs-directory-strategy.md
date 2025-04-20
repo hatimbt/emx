@@ -1,4 +1,4 @@
-# 5. User-Emacs-Directory Strategy
+# 6. User-Emacs-Directory Strategy
 
 Date: 2025-04-20
 

@@ -20,7 +20,7 @@
    - Configure default font settings
 
 ** TODO Implement user-emacs-directory strategy
-   - Decide on approach for user-emacs-directory (see draft DR #0005)
+   - Decide on approach for user-emacs-directory (see draft DR #0006)
    - Implement XDG compliance for Emacs directories
    - Create clean separation between config, data, and cache
 
