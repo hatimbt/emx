@@ -1,0 +1,63 @@
+# Emacs runtime directories
+/elpaca/
+/eln-cache/
+/data/
+/config/
+/auto-save-list/
+/.emacs.desktop
+/.emacs.desktop.lock
+/transient/
+
+# Backup files
+*~
+\#*\#
+.\#*
+*.bak
+*.save
+
+# Compilation artifacts
+*.elc
+
+# Undo-tree save files
+*.~undo-tree
+
+# Recentf and history
+/recentf
+/recentf.eld
+/history
+/places
+
+# Bookmark
+/bookmarks
+
+# Custom
+/custom.el
+
+# Network Security Manager
+/network-security.data
+
+# Auto-generated completions
+/ac-comphist.dat
+
+# Temporary files
+*cache/
+*scratch*
+/tramp
+
+# Package specific 
+/eshell/
+/org-persist/
+/projectile*
+/nov-places
+/straight/
+/elpy/
+/url/
+
+# Nix build outputs and artifacts
+/result
+/result-*
+/.direnv/
+
+# OS specific
+.DS_Store
+Thumbs.db
