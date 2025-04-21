@@ -53,7 +53,7 @@ let
     grammarPackages ++ (coreEmacsPackages epkgs));
 
   # Config source location
-  src = if cfg.localPath != null then "${cfg.localPath}/emacs" else "${../emacs}";
+  src = if cfg.localPath != null then "${cfg.localPath}" else "${../.}";
 in
 {
   options.programs.emacs-emx = {
