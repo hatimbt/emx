@@ -1,0 +1,52 @@
+((markdown-mode :source #1="elpaca-menu-lock-file" :recipe
+                (:package "markdown-mode" :fetcher github :repo
+                          "jrblevin/markdown-mode" :files
+                          ("*.el" "*.el.in" "dir" "*.info" "*.texi" "*.texinfo"
+                           "doc/dir" "doc/*.info" "doc/*.texi" "doc/*.texinfo"
+                           "lisp/*.el" "docs/dir" "docs/*.info" "docs/*.texi"
+                           "docs/*.texinfo"
+                           (:exclude ".dir-locals.el" "test.el" "tests.el"
+                                     "*-test.el" "*-tests.el" "LICENSE"
+                                     "README*" "*-pkg.el"))
+                          :source "MELPA" :protocol https :inherit t :depth
+                          treeless :ref
+                          "9d2850ed58719778d3e76411242d112e54998fd3"))
+ (gptel :source #1# :recipe
+        (:package "gptel" :repo "karthink/gptel" :fetcher github :files
+                  ("*.el" "*.el.in" "dir" "*.info" "*.texi" "*.texinfo"
+                   "doc/dir" "doc/*.info" "doc/*.texi" "doc/*.texinfo"
+                   "lisp/*.el" "docs/dir" "docs/*.info" "docs/*.texi"
+                   "docs/*.texinfo"
+                   (:exclude ".dir-locals.el" "test.el" "tests.el" "*-test.el"
+                             "*-tests.el" "LICENSE" "README*" "*-pkg.el"))
+                  :source "MELPA" :protocol https :inherit t :depth treeless
+                  :ref "4b505e72e9ad0cdbf800457996a4b85c6cb68519"))
+ (lsp-bridge :source #1# :recipe
+             (:source nil :protocol https :inherit t :depth treeless :type git
+                      :host github :repo "manateelazycat/lsp-bridge" :files
+                      (:defaults "*.el" "*.py" "acm" "core" "langserver"
+                                 "multiserver" "resources")
+                      :build (:not compile) :package "lsp-bridge" :ref
+                      "fdc6ab6726d5b959b60d7e5bcb9b78e32614d46b"))
+ (show-font :source #1# :recipe
+            (:package "show-font" :repo
+                      ("https://github.com/protesilaos/show-font" . "show-font")
+                      :files ("*" (:exclude ".git" "COPYING" "doclicense.texi"))
+                      :source "GNU ELPA" :protocol https :inherit t :depth
+                      treeless :ref "7af59f87ce24fa3cac7cd5a3996749fd856eae43"))
+ (elpaca-use-package :source #1# :recipe
+                     (:package "elpaca-use-package" :wait t :repo
+                               "https://github.com/progfolio/elpaca.git" :files
+                               ("extensions/elpaca-use-package.el") :main
+                               "extensions/elpaca-use-package.el" :build
+                               (:not elpaca--compile-info) :source
+                               "Elpaca extensions" :protocol https :inherit t
+                               :depth treeless :ref
+                               "ab62a34254570b430dc5bd1d03f16dfe74bd279e"))
+ (elpaca :source
+   #1# :recipe
+   (:source nil :protocol https :inherit ignore :depth 1 :repo
+            "https://github.com/progfolio/elpaca.git" :ref
+            "ab62a34254570b430dc5bd1d03f16dfe74bd279e" :files
+            (:defaults "elpaca-test.el" (:exclude "extensions")) :build
+            (:not elpaca--activate-package) :package "elpaca")))

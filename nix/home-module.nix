@@ -106,6 +106,11 @@ in
     };
 
     # Shim to load Emacs config from either local path or embedded flake source
+    home.file.".emacs.d/early-init.el" = {
+      text = ''
+        (load "${src}/early-init.el")
+      '';
+    };
     home.file.".emacs.d/init.el" = {
       text = ''
         (setq user-emacs-directory (expand-file-name ".emacs.d" (getenv "HOME")))
