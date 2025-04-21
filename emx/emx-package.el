@@ -24,6 +24,11 @@
 
 ;;; Code:
 
+;; Configure Elpaca to use EMX data directory
+(setq elpaca-directory (expand-file-name "elpaca/" emx-data-dir))
+(setq elpaca-builds-directory (expand-file-name "builds/" elpaca-directory))
+(setq elpaca-repos-directory (expand-file-name "repos/" elpaca-directory))
+
 (eval-and-compile ; `use-package'
   (setopt use-package-enable-imenu-support t)
   (setopt use-package-verbose t)

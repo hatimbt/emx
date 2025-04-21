@@ -69,6 +69,22 @@ Together, they bridge the gap between the Nix build system and the Emacs runtime
 4. **Self-contained**: Doesn't require external configuration
 5. **Documentation**: Uses a `defvar` with docstring rather than a simple `setq`
 
+## XDG Implementation Edge Cases
+
+When implementing the XDG-compliant version with `(unless (boundp '...))` checks:
+
+1. **When fallbacks activate:**
+   - Direct `eval-buffer` or `eval-region` in a clean Emacs session
+   - Manual loading via `load-file` in clean environment
+   - Testing in isolation with `emacs -Q`
+
+2. **When fallbacks don't activate:**
+   - Normal EMX launch via launcher script (variables set by shim)
+   - Reloading files during an active EMX session (variables already bound)
+
+3. **Evaluation during active session:**
+   If you launch EMX normally, edit config files, then use `eval-buffer`, the original paths from startup will be preserved since variables are already bound. For testing core initialization changes, restart EMX.
+
 ## Testing
 
 To verify this works in different contexts:

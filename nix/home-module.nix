@@ -52,8 +52,8 @@ let
   finalEmacsPackage = emacsPackages.emacsWithPackages (epkgs:
     grammarPackages ++ (coreEmacsPackages epkgs));
 
-  # Config source location
-  src = if cfg.localPath != null then "${cfg.localPath}" else "${../.}";
+  # Config source location in Nix store (always points to the immutable copy)
+  src = "${../.}";  # This is the path to the EMX source in the Nix store
 in
 {
   options.programs.emacs-emx = {
@@ -88,15 +88,48 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    # Install the Emacs package with treesitter grammars included
-    home.packages = [ finalEmacsPackage ];
+    # Install the Emacs package and EMX launcher script
+    home.packages = [ finalEmacsPackage ] ++ [
+      (pkgs.writeShellScriptBin "emx" ''
+        # Process arguments to detect --dev flag
+        args=()
+        dev_mode=0
+        
+        for arg in "$@"; do
+          if [ "$arg" = "--dev" ]; then
+            dev_mode=1
+          else
+            args+=("$arg")
+          fi
+        done
+        
+        # Check if dev mode is requested but localPath isn't configured
+        if [ $dev_mode -eq 1 ] && [ -z "${if cfg.localPath != null then cfg.localPath else ""}" ]; then
+          echo "Error: Cannot use --dev flag because localPath is not configured"
+          echo "Add this to your Home Manager configuration:"
+          echo "  programs.emacs-emx.localPath = \"/path/to/emx/source\";"
+          exit 1
+        fi
+        
+        # Set environment variable based on mode
+        if [ $dev_mode -eq 1 ]; then
+          export EMX_DEV_MODE=1
+          echo "Starting EMX in development mode (using localPath)"
+        else
+          unset EMX_DEV_MODE
+        fi
+        
+        # Launch Emacs with proper init directory
+        ${finalEmacsPackage}/bin/emacs --init-directory "$HOME/.config/emx" "''${args[@]}"
+      '')
+    ];
     
-    # Set up desktop entry for the managed Emacs
-    xdg.desktopEntries.emacs-emx = {
-      name = "Emacs (EmX)";
+    # Set up desktop entry for EMX
+    xdg.desktopEntries.emx = {
+      name = "EMX";
       genericName = "Text Editor";
       comment = "Edit text";
-      exec = "${finalEmacsPackage}/bin/emacs %F";
+      exec = "emx %F";
       terminal = false;
       type = "Application";
       icon = "emacs";
@@ -105,17 +138,52 @@ in
       startupNotify = true;
     };
 
-    # Shim to load Emacs config from either local path or embedded flake source
-    home.file.".emacs.d/early-init.el" = {
-      text = ''
-        (load "${src}/early-init.el")
-      '';
-    };
-    home.file.".emacs.d/init.el" = {
-      text = ''
-        (setq user-emacs-directory (expand-file-name ".emacs.d" (getenv "HOME")))
-        (load "${src}/init.el")
-      '';
+    # Create XDG-compliant configuration directory with shims
+    xdg.configFile = {
+      # Early init shim
+      "emx/early-init.el" = {
+        text = ''
+          ;; EMX early initialization shim
+
+          ;; Determine source directory based on mode (development or stable)
+          (defvar emx-source-dir
+            (if (getenv "EMX_DEV_MODE")
+                ;; Development mode - load from localPath
+                (progn
+                  (message "EMX: Development mode active (using localPath)")
+                  "${cfg.localPath}")
+              ;; Stable mode - load from Nix store
+              "${src}")
+            "Source directory of EMX configuration.")
+
+          ;; Define config/data/cache directories for XDG compliance
+          (defvar emx-config-dir (expand-file-name "~/.config/emx/")
+            "Directory for EMX configuration files.")
+
+          (defvar emx-data-dir (expand-file-name "~/.local/share/emx/")
+            "Directory for EMX data files.")
+
+          (defvar emx-cache-dir (expand-file-name "~/.cache/emx/")
+            "Directory for EMX cache files.")
+
+          ;; Load the actual early-init.el from source
+          (load (expand-file-name "early-init.el" emx-source-dir))
+        '';
+      };
+
+      # Main init.el shim
+      "emx/init.el" = {
+        text = ''
+          ;; EMX initialization shim
+
+          ;; Directory variables already set by early-init.el
+          ;; Just ensure user-emacs-directory is set to our config dir
+          (setq user-emacs-directory emx-config-dir)
+
+          ;; Load the actual init.el from source
+          (load (expand-file-name "init.el" emx-source-dir))
+        '';
+      };
     };
   };
 }
