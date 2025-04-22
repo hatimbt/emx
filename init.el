@@ -57,11 +57,11 @@
                         "emx-programming.el"
                         "emx-version-control.el"
                         "emx-research.el"
-                        ;"emx-filesystem.el"
-                        ;"emx-window.el"
-                        ;"emx-navigation.el"
-                        ;"emx-finance.el"
-                        ;"emx-ai.el"
+                        "emx-filesystem.el"
+                        "emx-window.el"
+                        "emx-navigation.el"
+                        "emx-finance.el"
+                        "emx-ai.el"
                         )))
 
   (dolist (file-name posimacs-files)

@@ -66,7 +66,6 @@
 ;;
 ;; https://leahneukirchen.org/blog/archive/2022/03/note-taking-in-emacs-with-howm.html
 (use-package howm
-  :ensure t
   :init
   ;; Where to store the files?
   (setq howm-directory "~/work/howm")
@@ -85,7 +84,6 @@
 ;;
 ;; https://github.com/localauthor/zk
 (use-package zk
-  :ensure t
   :config
   (setq zk-directory "~/work/zk")
   (setq zk-file-extension "org")
@@ -102,8 +100,7 @@
 ;; https://protesilaos.com/emacs/denote
 ;;
 ;; The key feature of this package is it's naming scheme.
-(use-package denote
-  :ensure t)
+(use-package denote)
 
 ;; consult-notes - Integrate various note taking systems
 ;;
@@ -112,7 +109,6 @@
 ;; This package allows for notes from various note-taking frameworks to be
 ;; searched together.
 (use-package consult-notes
-  :ensure t
   :after (consult embark)
   :commands (consult-notes
              consult-notes-search-in-all-notes)
@@ -127,12 +123,10 @@
 ;; AUCTeX - Document creation
 ;;
 ;; https://www.gnu.org/software/auctex/
-(use-package auctex
-  :ensure t)
+(use-package auctex)
 
 ;; Quickly insert LaTeX environments
-(use-package cdlatex
-  :ensure t)
+(use-package cdlatex)
 
 ;;; Reference management
 
@@ -141,8 +135,7 @@
 ;; https://github.com/joostkremers/ebib
 ;;
 ;; https://joostkremers.github.io/ebib/
-(use-package ebib
-  :ensure t)
+(use-package ebib)
 
 (provide 'emx-research)
 ;;; emx-research.el ends here

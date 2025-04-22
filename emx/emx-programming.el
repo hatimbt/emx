@@ -51,10 +51,7 @@
 ;;
 ;; Has a number of python deps
 (use-package lsp-bridge
-  :ensure '(lsp-bridge :type git :host github :repo "manateelazycat/lsp-bridge"
-            :files (:defaults "*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
-            :build (:not compile))
-  :init
+  :config
   (global-lsp-bridge-mode))
 
 ;;; Lisp programming
@@ -63,7 +60,6 @@
 ;;
 ;; https://github.com/justinbarclay/parinfer-rust-mode
 (use-package parinfer-rust-mode
-  :ensure t
   :hook emacs-lisp-mode)
 
 ;; paredit
@@ -77,8 +73,7 @@
 ;; Some of them looks very interesting.
 ;;
 ;; see 'https://karthinks.com/software/a-consistent-structural-editing-interface/'
-(use-package paredit
-  :ensure t)
+(use-package paredit)
 
 ;; geiser
 ;;
@@ -91,25 +86,19 @@
 ;;    needs to be run in the background. He considers Geiser to have some
 ;;    limitations, and chose to implement a new REPL integration. He claims to
 ;;    have tried to contribute to Geiser but that he found it difficult.
-(use-package geiser
-  :ensure t)
+(use-package geiser)
 
 ;; macrostep-geiser - In-buffer macro expansion for Geiser
 ;;
 ;; This is based on macrostep. It currently is in the emacsorphanage
 (use-package macrostep-geiser
-  :ensure t
   :after geiser-mode
   :config (add-hook 'geiser-mode-hook #'macrostep-geiser-setup))
 
 ;; Common Lisp
 ;;
 ;; https://github.com/joaotavora/sly
-(use-package sly
-  :ensure t)
-
-(use-package yasnippet
-  :ensure t)
+(use-package sly)
 
 (provide 'emx-programming)
 ;;; emx-programming.el ends here

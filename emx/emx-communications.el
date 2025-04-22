@@ -12,5 +12,4 @@
 ;; Notmuch seems to be an extremely versatile tool that is able to manage large
 ;; collections of email easily. It does require that the user tailor it to their
 ;; particular needs.
-(use-package notmuch
-  :ensure t)
+(use-package notmuch)

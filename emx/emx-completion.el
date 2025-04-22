@@ -44,14 +44,15 @@
 ;; Vertico has a number of extensions libraries that provide additional
 ;; functionality.
 (use-package vertico
-  :ensure t
+  :ensure t     ; FIXME For some reason, using the Nix vertico break with a void
+                ; function error. So we use elpaca sourced version
   :init
   (vertico-mode)
-  :bind ( :map vertico-map
+  :bind (:map vertico-map
          ("<left>" . backward-char)
          ("<right>" . forward-char))
-    
-          
+
+
   :config
   (setopt vertico-cycle t)
   (setopt vertico-resize t)
@@ -128,7 +129,6 @@
 ;;
 ;; https://github.com/oantolin/orderless
 (use-package orderless
-  :ensure t
   :config
   (setopt completion-styles '(orderless basic))
   (setopt completion-category-defaults nil)
@@ -151,7 +151,6 @@
 ;;      context in the primary buffer. Another alternative is to reduce the font size
 ;;      of the margianl text, when in the vertico buffer.
 (use-package marginalia
-  :ensure t
   :commands (marginalia-mode marginalia-cycle)
   :hook (after-init . marginalia-mode))
 
@@ -163,7 +162,6 @@
 ;; users to perform context-sensitive actions on selected items
 ;; directly from the completion interface.
 (use-package embark
-  :ensure t
   :defer t
   :commands (embark-act
              embark-dwim
@@ -193,7 +191,6 @@
 ;; 
 ;; Example configuration for Consult
 (use-package consult
-  :ensure t
   ;; Replace bindings. Lazily loaded by `use-package'.
   :bind (;; C-c bindings in `mode-specific-map'
          ("C-c M-x" . consult-mode-command)
@@ -267,7 +264,6 @@
         xref-show-definitions-function #'consult-xref))
 
 (use-package embark-consult
-  :ensure t
   :after (embark consult)
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
@@ -278,15 +274,13 @@
 ;;
 ;; https://github.com/minad/tempel
 (use-package tempel
-  :ensure t
   :bind (("M-+" . tempel-complete) ;; Alternative tempel-expand
          ("M-*" . tempel-insert)))
 
 ;; tempel-collection
 ;;
 ;; Base snippet colletion
-(use-package tempel-collection
-  :ensure t)
+(use-package tempel-collection)
 
 ;; lacarte - Menu navigation
 ;;

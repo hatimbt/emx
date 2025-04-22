@@ -57,7 +57,6 @@
 ;;
 ;; Alternatives: git-gutter (allows for hunks to be staged)
 (use-package diff-hl
-  :ensure t
   :hook
   ((prog-mode . diff-hl-mode)
    (text-mode . diff-hl-mode)
@@ -103,7 +102,6 @@
 ;;
 ;; TODO Review config as it is imported from Prot for now.
 (use-package magit
-  :ensure t
   :bind ("C-c g" . magit-status)
   :init
   (setq magit-define-global-key-bindings nil)
@@ -130,7 +128,6 @@
 ;;
 ;; We add a delay to the popup showing up.
 (use-package transient
-  :ensure t
   :defer t
   :config
   (setq transient-show-popup 0.5))
@@ -141,7 +138,6 @@
 ;;
 ;; deps: ripgrep
 (use-package magit-todos
-  :ensure t
   :after magit
   :config (magit-todos-mode 1))
 

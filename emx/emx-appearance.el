@@ -18,7 +18,6 @@
 ;; The themes are highly customisable.  Read the manual:
 ;; <https://protesilaos.com/emacs/modus-themes>.
 (use-package modus-themes
-  :ensure t
   :demand t
   :bind ("<f5>" . modus-themes-rotate)
   :config
@@ -39,7 +38,6 @@
   (modus-themes-load-theme 'modus-operandi-tinted))
 
 (use-package ef-themes
-  :ensure t
   :bind
   (("M-<f5>" . ef-themes-rotate)
    ("C-<f5>" . ef-themes-select))
@@ -51,7 +49,6 @@
 ;; Lin
 ;; Read the lin manual: <https://protesilaos.com/emacs/lin>.
 (use-package lin
-  :ensure t
   :hook (after-init . lin-global-mode) ; applies to all `lin-mode-hooks'
   :config
   ;; You can use this to live update the face:
@@ -65,7 +62,6 @@
 
 ;; spacious-padding
 (use-package spacious-padding
-  :ensure t
   :if (display-graphic-p)
   :hook (after-init . spacious-padding-mode)
   :bind ("<f8>" . spacious-padding-mode)
@@ -94,7 +90,6 @@
 
 ;; fontaine.el -- Font configurations
 (use-package fontaine
-  :ensure t
   :if (display-graphic-p)
   :hook
   ;; Persist the latest font preset when closing/starting Emacs and
@@ -126,7 +121,6 @@
 ;;;; Show Font (preview fonts)
 ;; Read the manual: <https://protesilaos.com/emacs/show-font>
 (use-package show-font
-  :ensure t
   :if (display-graphic-p)
   :commands (show-font-select-preview show-font-list)
   :config

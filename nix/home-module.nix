@@ -30,22 +30,108 @@ let
   
   # Define core Emacs packages to be managed by Nix
   # These should be stable packages or those with C dependencies
-  coreEmacsPackages = epkgs: [
-    # Core packages with C dependencies
-    epkgs.vterm
-    epkgs.pdf-tools
+  coreEmacsPackages = epkgs: with epkgs; [
+    use-package
+    compat
+    no-littering
+    vundo
+    ws-butler
 
-    # Stable packages unlikely to need customization
-    epkgs.magit
-    epkgs.org
-    epkgs.use-package
+    # emx-navigation
+    beginend # M-< and M-> move to semantically meaningful locations
+    mwim
+    dirvish
+    guix
 
-    # Additional stable packages
-    epkgs.with-editor
-    epkgs.transient
-    epkgs.dash
-    epkgs.s
-    epkgs.f
+    # emx-appearance
+    modus-themes
+    ef-themes
+    doom-themes
+    poet-theme
+    lin
+    spacious-padding
+    fontaine
+    show-font
+    show-font-mode
+
+    vterm
+    with-editor
+
+    # emx-completion
+    vertico
+    orderless
+    marginalia
+    embark
+    consult
+    tabspaces
+
+    # emx-multimedia
+    yeetube
+    mpv
+    empv
+
+    # emx-version-control
+    diff-hl
+    git-gutter
+    magit
+    magit-todos
+    #magit-stgit #broken
+
+    # emx-programming
+    lsp-bridge
+    nix-mode
+    parinfer-rust-mode
+    markdown-mode
+    paredit
+    package-lint
+    sly
+    #sly-stepper #not on nixpkgs
+    sly-asdf
+    sly-quicklisp
+    sly-macrostep
+    cider
+    geiser
+    geiser-guile
+    geiser-racket
+    geiser-overlay
+    macrostep-geiser
+    flycheck
+    docker
+    dockerfile-mode
+    docker-compose-mode
+    erk
+    tempel
+    tempel-collection
+    yasnippet
+    yasnippet-snippets
+
+    # emx-research
+    denote
+    consult-notes
+    howm
+    zk
+    citar
+    citar-denote
+    citar-embark
+    auctex
+    cdlatex
+    ebib
+    pdf-tools
+    biblio
+    #persid #not on nixpkgs
+
+    # emx-prose
+    writeroom-mode
+    titlecase
+
+    # emx-communications
+    notmuch
+    consult-notmuch
+    elfeed
+    org-msg
+
+    # emx-finance
+    beancount
   ];
 
   # Create the final Emacs package with grammars and core packages included
@@ -90,6 +176,12 @@ in
   config = lib.mkIf cfg.enable {
     # Install the Emacs package and EMX launcher script
     home.packages = [ finalEmacsPackage ] ++ [
+        pkgs.ripgrep
+        pkgs.fd
+        pkgs.yt-dlp
+        pkgs.parinfer-rust-emacs
+        pkgs.vale # syntax aware linter
+      ] ++ [
       (pkgs.writeShellScriptBin "emx" ''
         # Process arguments to detect --dev flag
         args=()
@@ -143,7 +235,7 @@ in
       # Early init shim
       "emx/early-init.el" = {
         text = ''
-          ;; EMX early initialization shim
+          ;; EMX early initialization shim -*- lexical-binding: t -*-
 
           ;; Determine source directory based on mode (development or stable)
           (defvar emx-source-dir
@@ -173,12 +265,26 @@ in
 
       # Main init.el shim
       "emx/init.el" = {
-        text = ''
-          ;; EMX initialization shim
+        text = let
+          # Extract date from Emacs package path for elpaca-core-date
+          # See: https://github.com/progfolio/elpaca/wiki/Warnings-and-Errors
+          emacsBuildDate =
+            let
+              packagePath = toString cfg.package;
+              dateMatch = builtins.match ".*-([0-9]{8}).*" packagePath;
+            in
+              if dateMatch != null
+              then builtins.head dateMatch
+              else null;
+        in ''
+          ;; EMX initialization shim -*- lexical-binding: t -*-
 
           ;; Directory variables already set by early-init.el
           ;; Just ensure user-emacs-directory is set to our config dir
           (setq user-emacs-directory emx-config-dir)
+
+          ;; Set Elpaca core date based on Emacs build date from Nix
+          ${if emacsBuildDate != null then "(setq elpaca-core-date '(${emacsBuildDate}))" else ";; No build date found in package name"}
 
           ;; Load the actual init.el from source
           (load (expand-file-name "init.el" emx-source-dir))

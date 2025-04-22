@@ -38,7 +38,6 @@
 ;;
 ;; https://github.com/emacscollective/no-littering
 (use-package no-littering
-  :ensure t
   :init
   (setq no-littering-etc-directory
         (expand-file-name "config/" user-emacs-directory))

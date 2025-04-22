@@ -26,12 +26,10 @@
 
 ;;; ws-butler - Cleanup whitespace at end of lines
 (use-package ws-butler
-  :ensure t
   :delight
   :config (ws-butler-global-mode t))
 
-(use-package transient
-  :ensure t)
+(use-package transient)
 
 (provide 'emx-defaults)
 ;;; emx-defaults.el ends here

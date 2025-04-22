@@ -1,3 +1,12 @@
+;;; emx-filesystem.el --- Filesystem navigation and manipulation  -*- lexical-binding: t; -*-
+
+;; Copyright (C) 2025  Hatim Thayyil
+
+;; Author: Hatim Thayyil <hatim@thayyil.net>
+;; Keywords:
+
+;;; Code:
+
 (use-package dired
   :ensure nil
   :commands (dired)

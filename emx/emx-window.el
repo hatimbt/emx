@@ -1,4 +1,4 @@
-;;; General window and buffer configurations
+;;; General window and buffer configurations -*- lexical-binding: t; -*-
 (use-package uniquify
   :ensure nil
   :config

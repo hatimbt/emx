@@ -13,11 +13,9 @@
 
 ;; yeetube.el - 
 ;; https://thanosapollo.org/projects/yeetube/
-(use-package yeetube
-  :ensure t)
+(use-package yeetube)
 
-(use-package empv
-  :ensure t)
+(use-package empv)
 
 (provide 'emx-multimedia)
 ;;; emx-multimedia.el ends here
