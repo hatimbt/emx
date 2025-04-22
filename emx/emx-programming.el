@@ -102,5 +102,11 @@
 ;; https://github.com/joaotavora/sly
 (use-package sly)
 
+;; Nix mode
+;;
+;; https://github.com/NixOS/nix-mode
+(use-package nix-mode
+  :mode "\\.nix\\'")
+
 (provide 'emx-programming)
 ;;; emx-programming.el ends here
