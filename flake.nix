@@ -5,10 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
-  outputs = inputs@{ nixpkgs, ... }:
-    let
-      overlays = import ./overlays.nix { inherit inputs; };
-    in
+  outputs = { nixpkgs, ... }:
     {
       homeManagerModules.default = import ./nix/home-module.nix;
     };
