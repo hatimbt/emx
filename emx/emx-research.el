@@ -102,6 +102,21 @@
 ;; The key feature of this package is it's naming scheme.
 (use-package denote)
 
+;; org-node - Alternative to org-roam
+;;
+;; https://github.com/meedstrom/org-node.git
+(use-package org-node
+  :ensure t
+  :after org
+  :bind (("M-s M-f" . org-node-find)
+         :map org-mode-map
+         ("M-s M-i" . org-node-insert-link))
+  :config
+  (org-node-cache-mode)
+  ;; Context buffer
+  ;;(org-node-context-follow-mode)
+  (org-node-backlink-mode))
+
 ;; consult-notes - Integrate various note taking systems
 ;;
 ;; https://github.com/mclear-tools/consult-notes
