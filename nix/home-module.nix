@@ -181,6 +181,7 @@ in
         pkgs.yt-dlp
         pkgs.parinfer-rust-emacs
         pkgs.vale # syntax aware linter
+        pkgs.beancount-language-server # TODO split off into a "personal"
       ] ++ [
       (pkgs.writeShellScriptBin "emx" ''
         # Process arguments to detect --dev flag
