@@ -13,7 +13,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Build: `nix build`
 - Dev environment: `nix develop`
 - Lint Nix files: `nixpkgs-fmt <filename>.nix`
-- Check Nix: `nix flake check`
 
 ## CODE STYLE GUIDELINES
 ### Nix
