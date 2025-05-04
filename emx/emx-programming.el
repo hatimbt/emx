@@ -52,7 +52,16 @@
 ;; Has a number of python deps
 (use-package lsp-bridge
   :config
-  (global-lsp-bridge-mode))
+  (global-lsp-bridge-mode)
+  (setq lsp-bridge-python-lsp-server "basedpyright")
+  (setq lsp-bridge-enable-hover-diagnostic t)
+  (setq lsp-bridge-enable-inlay-hint t)
+  (setq lsp-bridge-enable-org-babel t)
+  (setq acm-enable-tabnine t)
+  (setq acm-candidate-match-function 'regexp-quote) ; default, try
+                                                    ; 'orderless-flex later
+
+  )
 
 ;;; Lisp programming
 

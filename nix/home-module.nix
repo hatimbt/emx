@@ -184,6 +184,8 @@ in
         pkgs.yt-dlp
         pkgs.parinfer-rust-emacs
         pkgs.vale # syntax aware linter
+        pkgs.basedpyright # Python LSP
+        pkgs.ruff # Python linter and formatter
         pkgs.beancount-language-server # TODO split off into a "personal"
       ] ++ [
       (pkgs.writeShellScriptBin "emx" ''
