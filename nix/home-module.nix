@@ -132,6 +132,9 @@ let
 
     # emx-finance
     beancount
+
+    # emx-footer
+    envrc
   ];
 
   # Create the final Emacs package with grammars and core packages included

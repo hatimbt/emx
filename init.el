@@ -62,6 +62,7 @@
                         "emx-navigation.el"
                         "emx-finance.el"
                         "emx-ai.el"
+                        "emx-footer.el"
                         )))
 
   (dolist (file-name posimacs-files)
