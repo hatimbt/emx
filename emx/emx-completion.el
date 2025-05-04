@@ -268,6 +268,16 @@
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
+;; yasnippet - Snippets
+;;
+;; https://github.com/joaotavora/yasnippet
+(use-package yasnippet
+  :config
+  (yas-global-mode 1))
+
+(use-package yasnippet-snippets
+  :after yasnippet)
+
 ;; tempel - Templating/snippet system
 ;;
 ;; Templating system inspired by the Tempo Emacs builtin package.
