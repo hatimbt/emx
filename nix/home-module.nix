@@ -123,6 +123,7 @@ let
     # emx-prose
     writeroom-mode
     titlecase
+    jinx
 
     # emx-communications
     notmuch
@@ -183,7 +184,11 @@ in
         pkgs.fd
         pkgs.yt-dlp
         pkgs.parinfer-rust-emacs
-        pkgs.vale # syntax aware linter
+
+        pkgs.vale # syntax aware prose linter
+        pkgs.vale-ls # LSP for vale
+        pkgs.valeStyles.write-good
+
         pkgs.basedpyright # Python LSP
         pkgs.ruff # Python linter and formatter
         pkgs.beancount-language-server # TODO split off into a "personal"

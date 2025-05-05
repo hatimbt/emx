@@ -38,6 +38,14 @@
    ((error line-start (file-name) ":" line ":" column ":" (id (one-or-more (not (any ":")))) ":" (message) line-end))
    :modes (markdown-mode org-mode text-mode))
   (add-to-list 'flycheck-checkers 'vale 'append))
+
+;; jinx.el - Spell checker using the encant aggregator library
+;;
+;; https://github.com/minad/jinx
+(use-package jinx
+  :hook (emacs-startup . global-jinx-mode)
+  :bind (("M-$" . jinx-correct)
+         ("C-M-$" . jinx-languages)))
  
 (provide 'emx-prose)
 ;;; emx-prose.el ends here

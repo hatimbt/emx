@@ -77,6 +77,7 @@
             (consult-imenu buffer)))
   (setopt vertico-multiform-categories
           '((consult-grep buffer)
+            (jinx grid (vertico-grid-annotate . 20) (vertico-count . 4))
             (file (vertico-resize . nil)
                   (vertico-sort-function . emx/sort-directories-first))))
 
