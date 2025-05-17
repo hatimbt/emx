@@ -106,7 +106,6 @@
 ;;
 ;; https://github.com/meedstrom/org-node.git
 (use-package org-node
-  :ensure t
   :after org
   :bind (("M-s M-f" . org-node-find)
          :map org-mode-map

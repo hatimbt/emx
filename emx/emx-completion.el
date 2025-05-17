@@ -44,8 +44,6 @@
 ;; Vertico has a number of extensions libraries that provide additional
 ;; functionality.
 (use-package vertico
-  :ensure t     ; FIXME For some reason, using the Nix vertico break with a void
-                ; function error. So we use elpaca sourced version
   :init
   (vertico-mode)
   :bind (:map vertico-map

@@ -77,10 +77,5 @@
 (elpaca `(,@elpaca-order))
 ;; END ELPACA BOOTSTRAP
 
-;; Install use-package support
-(elpaca elpaca-use-package
-  ;; Enable use-package :ensure support for Elpaca.
-  (elpaca-use-package-mode))
-
 (provide 'emx-package)
 ;;; emx-package.el ends here

@@ -40,6 +40,9 @@
 ;; Load EmX package management
 (load (expand-file-name "emx/emx-package.el" emx-source-dir))
 
+;; Load Emacs Lisp from Elpaca
+(load (expand-file-name "elpaca.el" emx-source-dir))
+
 ;; Load EmX init shim
 (load (expand-file-name "emx/emx-init.el" emx-source-dir))
 

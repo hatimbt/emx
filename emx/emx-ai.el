@@ -14,7 +14,6 @@
    (shell-command-to-string (concat "pass " pass-entry))))
 
 (use-package gptel
-  :ensure t
   :config
   ;; OpenAI models
   (setq gptel-api-key (key "api.openai.com"))
