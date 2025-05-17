@@ -106,33 +106,13 @@ let
     yasnippet-snippets
 
     # emx-research
-    denote
-    consult-notes
-    howm
-    zk
-    citar
-    citar-denote
-    citar-embark
-    auctex
-    cdlatex
-    ebib
     pdf-tools
-    biblio
-    #persid #not on nixpkgs
-
-    # emx-prose
-    writeroom-mode
-    titlecase
-    jinx
 
     # emx-communications
     notmuch
     consult-notmuch
     elfeed
     org-msg
-
-    # emx-finance
-    beancount
 
     # emx-footer
     envrc

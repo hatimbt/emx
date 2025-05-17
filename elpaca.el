@@ -7,7 +7,8 @@
 
 ;;; Commentary:
 
-;; Here, we specify Emacs Lisp packages to fetch and their source origins.
+;; Here, we specify Emacs Lisp packages to fetch and their source origins. It
+;; would be nice to specify packages that should be provided by Nix
 
 ;;; Code:
 
@@ -18,7 +19,26 @@
 (elpaca vertico)
 
 ;; emx-research
+(elpaca consult-notes)
+(elpaca denote)
+(elpaca howm)
+(elpaca zk)
 (elpaca org-node)
+(elpaca citar)
+(elpaca citar-denote)
+(elpaca auctex)
+(elpaca cdlatex)
+(elpaca ebib)
+(elpaca biblio)
+(elpaca (persid :host github :repo "rougier/persid"))
+
+;; emx-prose
+(elpaca writeroom-mode)
+(elpaca titlecase)
+(elpaca jinx)
+
+;; emx-finance
+(elpaca beancount)
 
 ;; emx-ai
 (elpaca gptel)
