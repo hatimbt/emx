@@ -77,5 +77,12 @@
 (elpaca `(,@elpaca-order))
 ;; END ELPACA BOOTSTRAP
 
+(setq elpaca-lock-file (expand-file-name "elpaca.lock" emx-source-dir))
+
+(defun emx.lock ()
+  "Write lock file to EMX elpaca.lock file located in the emx-source-dir."
+  (interactive)
+  (elpaca-write-lock-file elpaca-lock-file))
+
 (provide 'emx-package)
 ;;; emx-package.el ends here
