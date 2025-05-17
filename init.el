@@ -43,6 +43,16 @@
 ;; Load Emacs Lisp from Elpaca
 (load (expand-file-name "elpaca.el" emx-source-dir))
 
+;; FIXME Does not work, need a way to have local overrides.
+;; Load local overrides if it exists.
+;; (let ((local (expand-file-name "elpaca.local.el" emx-source-dir)))
+;;   (when (file-readable-p local)
+;;     (message "Elpaca: loading local overrides from %s" local)
+;;     (load local nil 'nomessage)))
+
+(elpaca-process-queues)
+(elpaca-wait)
+
 ;; Load EmX init shim
 (load (expand-file-name "emx/emx-init.el" emx-source-dir))
 

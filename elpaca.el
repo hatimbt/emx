@@ -45,5 +45,3 @@
 
 ;; emx-footer
 (elpaca envrc)
-
-(elpaca-process-queues)

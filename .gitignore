@@ -62,3 +62,6 @@
 .DS_Store
 Thumbs.db
 .aider*
+
+# EMX
+elpaca.local.el
