@@ -76,7 +76,7 @@
 (elpaca (org-mem :host github :repo "meedstrom/org-mem"))
 (elpaca citar)
 (elpaca citar-denote)
-(elpaca auctex)
+(elpaca (auctex :host github :repo "emacsmirror/auctex" :branch "master"))
 (elpaca cdlatex)
 (elpaca ebib)
 (elpaca biblio)
