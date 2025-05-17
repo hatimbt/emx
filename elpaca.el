@@ -30,6 +30,7 @@
 (elpaca marginalia)
 (elpaca embark)
 (elpaca consult)
+(elpaca embark-consult)
 (elpaca tabspaces)
 
 ;; emx-research
