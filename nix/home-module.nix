@@ -113,9 +113,6 @@ let
     consult-notmuch
     elfeed
     org-msg
-
-    # emx-footer
-    envrc
   ];
 
   # Create the final Emacs package with grammars and core packages included
