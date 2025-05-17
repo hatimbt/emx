@@ -51,13 +51,6 @@ let
     mpv
     empv
 
-    # emx-version-control
-    diff-hl
-    git-gutter
-    magit
-    magit-todos
-    #magit-stgit #broken
-
     # emx-programming
     lsp-bridge
     nix-mode

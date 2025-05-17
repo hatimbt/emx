@@ -33,6 +33,13 @@
 (elpaca embark-consult)
 (elpaca tabspaces)
 
+;; emx-version-control
+(elpaca diff-hl)
+(elpaca git-gutter)
+(elpaca magit)
+(elpaca magit-todos)
+(elpaca magit-stgit)
+
 ;; emx-research
 (elpaca consult-notes)
 (elpaca denote)
