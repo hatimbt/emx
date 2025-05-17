@@ -176,11 +176,11 @@ in
       (pkgs.writeShellScriptBin "emx" ''
         # Process arguments to detect --dev flag
         args=()
-        dev_mode=0
+        dev_mode=1
         
         for arg in "$@"; do
-          if [ "$arg" = "--dev" ]; then
-            dev_mode=1
+          if [ "$arg" = "--stable" ]; then
+            dev_mode=0
           else
             args+=("$arg")
           fi
