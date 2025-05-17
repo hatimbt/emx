@@ -57,14 +57,6 @@ let
     vterm
     with-editor
 
-    # emx-completion
-    vertico
-    orderless
-    marginalia
-    embark
-    consult
-    tabspaces
-
     # emx-multimedia
     yeetube
     mpv
@@ -107,12 +99,6 @@ let
 
     # emx-research
     pdf-tools
-
-    # emx-communications
-    notmuch
-    consult-notmuch
-    elfeed
-    org-msg
   ];
 
   # Create the final Emacs package with grammars and core packages included

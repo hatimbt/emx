@@ -17,6 +17,11 @@
 
 ;; emx-completion
 (elpaca vertico)
+(elpaca orderless)
+(elpaca marginalia)
+(elpaca embark)
+(elpaca consult)
+(elpaca tabspaces)
 
 ;; emx-research
 (elpaca consult-notes)
@@ -37,6 +42,12 @@
 (elpaca writeroom-mode)
 (elpaca titlecase)
 (elpaca jinx)
+
+;; emx-communications
+(elpaca notmuch)
+(elpaca consult-notmuch)
+(elpaca elfeed)
+(elpaca org-msg)
 
 ;; emx-finance
 (elpaca beancount)
