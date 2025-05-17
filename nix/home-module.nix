@@ -43,17 +43,6 @@ let
     dirvish
     guix
 
-    # emx-appearance
-    modus-themes
-    ef-themes
-    doom-themes
-    poet-theme
-    lin
-    spacious-padding
-    fontaine
-    show-font
-    show-font-mode
-
     vterm
     with-editor
 

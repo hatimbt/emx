@@ -13,6 +13,15 @@
 ;;; Code:
 
 ;; emx-appearance
+(elpaca modus-themes)
+(elpaca ef-themes)
+(elpaca doom-themes)
+(elpaca poet-theme)
+(elpaca lin)
+(elpaca spacious-padding)
+(elpaca fontaine)
+(elpaca show-font)
+(elpaca show-font-mode)
 (elpaca (rainbow-csv :host github :repo "emacs-vs/rainbow-csv"))
 
 ;; emx-completion
