@@ -40,6 +40,33 @@
 (elpaca magit-todos)
 (elpaca magit-stgit)
 
+;; emx-programming
+(elpaca parinfer-rust-mode) ;; requires pkgs.parinfer-rust-emacs
+(elpaca paredit)
+(elpaca nix-mode)
+(elpaca markdown-mode)
+(elpaca docker)
+(elpaca dockerfile-mode)
+(elpaca docker-compose-mode)
+(elpaca tempel)
+(elpaca tempel-collection)
+(elpaca yasnippet)
+(elpaca yasnippet-snippets)
+(elpaca sly)
+(elpaca (sly-stepper :host github :repo "joaotavora/sly-stepper"))
+(elpaca sly-asdf)
+(elpaca sly-quicklisp)
+(elpaca sly-macrostep)
+(elpaca cider)
+(elpaca geiser)
+(elpaca geiser-guile)
+;;(elpaca geiser-racket)                  ;broken
+(elpaca geiser-overlay)
+(elpaca macrostep-geiser)
+(elpaca package-lint)
+(elpaca flycheck)
+(elpaca erk)
+
 ;; emx-research
 (elpaca consult-notes)
 (elpaca denote)

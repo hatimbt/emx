@@ -53,31 +53,6 @@ let
 
     # emx-programming
     lsp-bridge
-    nix-mode
-    parinfer-rust-mode
-    markdown-mode
-    paredit
-    package-lint
-    sly
-    #sly-stepper #not on nixpkgs
-    sly-asdf
-    sly-quicklisp
-    sly-macrostep
-    cider
-    geiser
-    geiser-guile
-    geiser-racket
-    geiser-overlay
-    macrostep-geiser
-    flycheck
-    docker
-    dockerfile-mode
-    docker-compose-mode
-    erk
-    tempel
-    tempel-collection
-    yasnippet
-    yasnippet-snippets
 
     # emx-research
     pdf-tools
