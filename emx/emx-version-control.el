@@ -141,6 +141,9 @@
   :after magit
   :config (magit-todos-mode 1))
 
+;; git-modes -
+(use-package git-modes)
+
 
 ;;;; EmX commands
 

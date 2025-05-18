@@ -49,6 +49,9 @@
 (elpaca magit)
 (elpaca magit-todos)
 (elpaca magit-stgit)
+(elpaca magit-imerge)
+(elpaca forge)
+(elpaca git-modes)
 (elpaca with-editor)
 
 ;; emx-programming
