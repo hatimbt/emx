@@ -36,6 +36,7 @@
 ;; emx-version-control
 (elpaca diff-hl)
 (elpaca git-gutter)
+(elpaca transient)
 (elpaca magit)
 (elpaca magit-todos)
 (elpaca magit-stgit)
