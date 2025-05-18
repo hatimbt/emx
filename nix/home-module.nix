@@ -87,6 +87,16 @@ in
         bypassing the immutable store copy.
       '';
     };
+
+    defaultEditor = lib.mkOption rec {
+      type = lib.types.bool;
+      default = false;
+      example = !default;
+      description = ''
+        Whether to configure {command}`emacsclient` as the default
+        editor using the {env}`EDITOR` environment variable.
+      '';
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -137,7 +147,13 @@ in
         # Launch Emacs with proper init directory
         ${finalEmacsPackage}/bin/emacs --init-directory "$HOME/.config/emx" "''${args[@]}"
       '')
-    ];
+      ];
+
+    home.sessionVariables = lib.mkIf cfg.defaultEditor {
+      EDITOR = lib.getBin (
+        pkgs.writeShellScript "editor" ''exec ${lib.getBin cfg.package}/bin/emacsclient "''${@:---create-frame}"''
+      );
+    };
     
     # Set up desktop entry for EMX
     xdg.desktopEntries.emx = {
