@@ -62,23 +62,23 @@
                                       before-user-init-time))))
 
 ;;; Load modules.
-(let ((posimacs-files '("emx-base.el"
-                        "emx-defaults.el"
-                        "emx-appearance.el"
-                        "emx-completion.el"
-                        "emx-multimedia.el"
-                        "emx-programming.el"
-                        "emx-version-control.el"
-                        "emx-research.el"
-                        "emx-filesystem.el"
-                        "emx-window.el"
-                        "emx-navigation.el"
-                        "emx-finance.el"
-                        "emx-ai.el"
-                        "emx-footer.el"
-                        )))
+(let ((emx-files '("emx-base.el"
+                   "emx-defaults.el"
+                   "emx-appearance.el"
+                   "emx-completion.el"
+                   "emx-multimedia.el"
+                   "emx-programming.el"
+                   "emx-version-control.el"
+                   "emx-research.el"
+                   "emx-filesystem.el"
+                   "emx-window.el"
+                   "emx-navigation.el"
+                   "emx-finance.el"
+                   "emx-ai.el"
+                   "emx-footer.el"
+                   )))
 
-  (dolist (file-name posimacs-files)
+  (dolist (file-name emx-files)
     (load (expand-file-name
            (concat "emx/" file-name)
            emx-source-dir))))
