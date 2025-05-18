@@ -32,19 +32,11 @@ let
   # These should be stable packages or those with C dependencies
   coreEmacsPackages = epkgs: with epkgs; [
     use-package
-    compat
-    no-littering
-    vundo
-    ws-butler
 
     # emx-navigation
-    beginend # M-< and M-> move to semantically meaningful locations
-    mwim
     dirvish
-    guix
 
     vterm
-    with-editor
 
     # emx-multimedia
     yeetube

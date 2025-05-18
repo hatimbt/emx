@@ -12,6 +12,15 @@
 
 ;;; Code:
 
+(elpaca compat)
+(elpaca no-littering)
+(elpaca vundo)
+(elpaca ws-butler)
+
+;; emx-navigation
+(elpaca beginend)
+(elpaca mwim)
+
 ;; emx-appearance
 (elpaca modus-themes)
 (elpaca ef-themes)
@@ -40,6 +49,7 @@
 (elpaca magit)
 (elpaca magit-todos)
 (elpaca magit-stgit)
+(elpaca with-editor)
 
 ;; emx-programming
 (elpaca parinfer-rust-mode) ;; requires pkgs.parinfer-rust-emacs
@@ -67,6 +77,7 @@
 (elpaca package-lint)
 (elpaca flycheck)
 (elpaca erk)
+(elpaca guix)
 
 ;; emx-research
 (elpaca consult-notes)
