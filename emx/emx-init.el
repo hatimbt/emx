@@ -379,4 +379,7 @@
 
 (use-package compat)
 
+;; start server
+(server-start)
+
 (provide 'emx-init)
