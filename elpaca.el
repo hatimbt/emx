@@ -113,6 +113,7 @@
 
 ;; emx-language-machine
 (elpaca gptel)
+(elpaca ellama)
 
 ;; emx-footer
 (elpaca envrc)

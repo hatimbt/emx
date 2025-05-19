@@ -84,6 +84,24 @@
 
   ;; (gptel-make-perplexity "Perplexity"
   ;;   :key (key "api.perplexity.ai")
-  ;;   :stream t)
+;;   :stream t)
+
+;; ellama - Tool for interacting with LLMs
+(use-package ellama
+  :bind ("C-c e" . ellama)
+  ;; send last message in chat buffer with C-c C-c
+  :hook (org-ctrl-c-ctrl-c-final . ellama-chat-send-last-message)
+  :init
+  (require 'llm-ollama)
+  (setopt ellama-summarization-provider
+          (make-llm-ollama
+           :chat-model "qwen2.5:3b"
+	       :embedding-model "nomic-embed-text"
+           :default-chat-non-standard-params '(("num_ctx" . 32768))))
+  (setopt ellama-coding-provider
+          (make-llm-ollama
+           :chat-model "qwen2.5-coder:3b"
+           :embedding-model "nomic-embed-text"
+           :default-chat-non-standard-params '(("num_ctx" . 32768)))))
 
 (provide 'emx-language-machine)
