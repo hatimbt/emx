@@ -74,7 +74,7 @@
                    "emx-window.el"
                    "emx-navigation.el"
                    "emx-finance.el"
-                   "emx-ai.el"
+                   "emx-language-machine.el"
                    "emx-footer.el"
                    )))
 

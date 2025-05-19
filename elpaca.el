@@ -111,7 +111,7 @@
 ;; emx-finance
 (elpaca beancount)
 
-;; emx-ai
+;; emx-language-machine
 (elpaca gptel)
 
 ;; emx-footer

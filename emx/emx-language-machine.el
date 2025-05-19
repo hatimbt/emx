@@ -1,4 +1,4 @@
-;;; emx-ai.el --- AI/ML, LLMs, GPTs,               -*- lexical-binding: t; -*-
+;;; emx-language-machine.el --- Language machines              -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2025  Hatim Thayyil
 
@@ -86,4 +86,4 @@
   ;;   :key (key "api.perplexity.ai")
   ;;   :stream t)
 
-(provide 'emx-ai)
+(provide 'emx-language-machine)
