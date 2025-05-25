@@ -69,6 +69,7 @@
                    "emx-multimedia.el"
                    "emx-programming.el"
                    "emx-version-control.el"
+                   "emx-organisation.el"
                    "emx-research.el"
                    "emx-filesystem.el"
                    "emx-window.el"
