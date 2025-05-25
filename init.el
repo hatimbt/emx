@@ -75,6 +75,7 @@
                    "emx-navigation.el"
                    "emx-finance.el"
                    "emx-language-machine.el"
+                   "command-line-interface.el"
                    "emx-footer.el"
                    )))
 

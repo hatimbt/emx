@@ -17,6 +17,9 @@
 (elpaca vundo)
 (elpaca ws-butler)
 
+;; command-line-interface
+(elpaca eat)
+
 ;; emx-navigation
 (elpaca beginend)
 (elpaca mwim)
