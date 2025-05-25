@@ -84,6 +84,8 @@
            (concat "emx/" file-name)
            emx-source-dir))))
 
+(load "~/.assistant/gptel-config.el")
+
 ;; Local Variables:
 ;; indent-tabs-mode: nil
 ;; End:
