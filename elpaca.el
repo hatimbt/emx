@@ -116,6 +116,9 @@
 
 ;; emx-language-machine
 (elpaca gptel)
+(elpaca (gptel-quick :host github :repo "karthink/gptel-quick"))
+(elpaca (gptel-aibo :host github :repo "dolmens/gptel-aibo"))
+(elpaca (aidermacs :host github :repo "MatthewZMD/aidermacs"))
 (elpaca ellama)
 
 ;; emx-footer
