@@ -180,6 +180,10 @@
   (setq line-number-mode t)
   (setq column-number-mode t)
 
+  ;; Show Buffer boundaries on the left gutter
+  (setq-default indicate-buffer-boundaries 'left)
+  (setq-default indicate-empty-lines t)
+
   (setq history-length 300))
 
 ;; Frames and windows
@@ -305,7 +309,7 @@
   (setopt kept-new-versions 5)
   (setopt kept-old-versions 5)
   (setopt vc-make-backup-files nil)     ; Do not backup version controlled files
-
+  (setq require-final-newline t)        ; Require empty line at EOF
 
   ;; Auto save
   ;;
