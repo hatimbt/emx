@@ -93,4 +93,38 @@
            :embedding-model "nomic-embed-text"
            :default-chat-non-standard-params '(("num_ctx" . 32768)))))
 
+
+;;; Functions
+
+(defun gptel-rename-chat ()
+  (interactive)
+  (unless gptel-mode
+    (user-error "This command is intended to be used in gptel chat buffers."))
+  (let ((gptel-model 'gpt-4o-mini))
+    (gptel-request
+        (list nil                                    ;user
+              "What is the chat content?"            ;llm
+              (concat "```" (if (eq major-mode 'org-mode) "org" "markdown") "\n"
+                      (buffer-substring-no-properties (point-min) (point-max))
+                      "\n```"))                      ;user
+      :system
+      (list (format                                  ;system message
+             "I will provide a transcript of a chat with an LLM.  \
+Suggest a short and informative name for a file to store this chat in.  \
+Use the following guidelines:
+- be very concise, one very short sentence at most
+- no spaces, use underscores if required
+- return ONLY the title, no explanation or summary
+- append the extension .%s"
+             (if (eq major-mode 'org-mode) "org" "md")))
+      :callback
+      (lambda (resp info)                           ;callback called with response and request info
+        (if (stringp resp)
+            (let ((buf (plist-get info :buffer)))
+              (when (and (buffer-live-p buf)
+                         (y-or-n-p (format "Rename buffer %s to %s? " (buffer-name buf) resp)))
+                (with-current-buffer buf (rename-visited-file resp))))
+          (message "Error(%s): did not receive a response from the LLM."
+                   (plist-get info :status)))))))
+
 (provide 'emx-language-machine)
