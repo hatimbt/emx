@@ -115,7 +115,7 @@
 (elpaca beancount)
 
 ;; emx-language-machine
-(elpaca (gptel :host github :repo "karthink/gptel"))
+(elpaca (gptel :host github :repo "karthink/gptel" :branch "master"))
 (elpaca (gptel-quick :host github :repo "karthink/gptel-quick"))
 (elpaca (gptel-aibo :host github :repo "dolmens/gptel-aibo"))
 (elpaca (aidermacs :host github :repo "MatthewZMD/aidermacs"))
