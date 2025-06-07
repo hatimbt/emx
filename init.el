@@ -38,7 +38,7 @@
   (setq user-emacs-directory emx-config-dir))
 
 ;; Load EmX package management
-(load (expand-file-name "emx/emx-package.el" emx-source-dir))
+(load (expand-file-name "lisp/emx-package.el" emx-source-dir))
 
 ;; Load Emacs Lisp from Elpaca
 (load (expand-file-name "elpaca.el" emx-source-dir))
@@ -64,33 +64,28 @@
            (float-time (time-subtract (current-time)
                                       before-user-init-time))))
 
-;;; Load modules using the new module system.
-;; For now, we still load from emx/ until modules are fully migrated
-(let ((emx-files '("emx-base.el"
-                   "emx-defaults.el"
-                   "emx-appearance.el"
-                   "emx-completion.el"
-                   "emx-multimedia.el"
-                   "emx-programming.el"
-                   "emx-version-control.el"
-                   "emx-organisation.el"
-                   "emx-research.el"
-                   "emx-filesystem.el"
-                   "emx-window.el"
-                   "emx-navigation.el"
-                   "emx-finance.el"
-                   "emx-language-machine.el"
-                   "command-line-interface.el"
-                   "emx-footer.el"
-                   )))
-
-  (dolist (file-name emx-files)
-    (load (expand-file-name
-           (concat "emx/" file-name)
-           emx-source-dir))))
-
-;; Load specific modules from modules/ directory
-(emx-modules! :emacs undo)
+;; Load modules from modules/ directory
+(emx-modules! :emacs
+              undo
+              :completion
+              vertico
+              :terminal
+              command-line-interface
+              :emx
+              base
+              appearance
+              multimedia
+              programming
+              version-control
+              organisation
+              research
+              filesystem
+              window
+              navigation
+              finance
+              language-machine
+              footer
+              )
 
 (load "~/.assistant/gptel-config.el")
 
