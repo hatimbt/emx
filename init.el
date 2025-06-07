@@ -54,7 +54,7 @@
 (elpaca-wait)
 
 ;; Load EmX init shim
-(load (expand-file-name "emx/emx-init.el" emx-source-dir))
+(load (expand-file-name "lisp/emx.el" emx-source-dir))
 
 (progn					;     startup
   (message "Loading early birds...done (%.3fs)"

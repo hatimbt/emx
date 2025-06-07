@@ -33,7 +33,7 @@
     "Directory for EMX cache files."))
 
 ;; Load the EMX early initialization module
-(load (expand-file-name "emx/emx-early-init.el" emx-source-dir))
+(load (expand-file-name "lisp/emx-early-init.el" emx-source-dir))
 
 ;;; early-init.el ends here
 

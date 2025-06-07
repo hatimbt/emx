@@ -371,7 +371,6 @@
 					                    (or (getenv "XDG_CACHE_HOME") "~/.cache")))
   (savehist-mode))
 
-
 (use-package tramp
   :ensure nil
   :init
