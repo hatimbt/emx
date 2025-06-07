@@ -1,0 +1,50 @@
+#+title: Tasks
+#+author: Hatim Thayyil
+
+* Emacs
+
+** Performance
+
+* User Interface
+
+* Completion
+
+* Text input
+
+* Text editing
+
+** Code folding
+
+* Tools
+
+** Magit
+
+** Collab
+
+** Direnv
+
+** Docker
+
+** Editorconfig
+
+** Language machine (LLMs)
+
+** Ein (Jupyter notebooks)
+
+* Applications
+
+** Email
+
+** Calendar
+
+** PDFs
+
+* Programming language
+
+** Beancount
+
+** Clojure
+
+** Common-lisp
+
+** Coq (theorem-prover)
