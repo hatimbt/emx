@@ -56,12 +56,16 @@
 ;; Load EmX init shim
 (load (expand-file-name "lisp/emx.el" emx-source-dir))
 
+;; Load module system
+(load (expand-file-name "lisp/emx-modules.el" emx-source-dir))
+
 (progn					;     startup
   (message "Loading early birds...done (%.3fs)"
            (float-time (time-subtract (current-time)
                                       before-user-init-time))))
 
-;;; Load modules.
+;;; Load modules using the new module system.
+;; For now, we still load from emx/ until modules are fully migrated
 (let ((emx-files '("emx-base.el"
                    "emx-defaults.el"
                    "emx-appearance.el"
@@ -84,6 +88,9 @@
     (load (expand-file-name
            (concat "emx/" file-name)
            emx-source-dir))))
+
+;; Load specific modules from modules/ directory
+(emx-modules! :emacs undo)
 
 (load "~/.assistant/gptel-config.el")
 

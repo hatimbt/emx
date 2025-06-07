@@ -34,16 +34,6 @@
     (add-hook 'text-mode-hook #'flyspell-mode)
     (add-hook 'prog-mode-hook #'flyspell-prog-mode)))
 
-;; vundo - Visual undo tree
-;;
-;; 'https://github.com/casouri/vundo'
-;;
-;; This is an alternative to the much older 'undo-tree' package. Vundo displays
-;; a horizontal tree whereas undo-tree displays a vertical tree.
-(use-package vundo
-  :config
-  (setq vundo-glyph-alist vundo-unicode-symbols))
-
 ;;; Helper functions
 
 (defun emx/keyboard-quit-dwim ()
