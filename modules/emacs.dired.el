@@ -1,4 +1,4 @@
-;;; emx-filesystem.el --- Filesystem navigation and manipulation  -*- lexical-binding: t; -*-
+;;; emacs.dired.el --- Filesystem navigation and manipulation  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2025  Hatim Thayyil
 
@@ -93,5 +93,3 @@
    ("M-t" . dirvish-layout-toggle)
    ("M-e" . dirvish-emerge-menu)
    ("M-j" . dirvish-fd-jump)))
-
-(provide 'emx-filesystem)

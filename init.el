@@ -67,6 +67,7 @@
 ;; Load modules from modules/ directory
 (emx-modules! :emacs
               undo
+              dired
               :completion
               vertico
               :terminal
@@ -79,7 +80,6 @@
               version-control
               organisation
               research
-              filesystem
               window
               navigation
               finance
