@@ -34,7 +34,8 @@
   (setopt use-package-verbose t)
   (require 'use-package)
   (require 'use-package-ensure)
-  (setopt use-package-always-ensure nil))
+  (setopt use-package-always-ensure nil)
+  (setopt use-package-always-defer t))
 
 ;; BEGIN ELPACA BOOTSTRAP
 (defvar elpaca-installer-version 0.11)
