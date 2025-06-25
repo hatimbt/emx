@@ -51,6 +51,7 @@
 ;;
 ;; Has a number of python deps
 (use-package lsp-bridge
+  :hook (prog-mode . lsp-bridge-mode)
   :config
   (global-lsp-bridge-mode)
   (setq lsp-bridge-python-lsp-server "basedpyright")
