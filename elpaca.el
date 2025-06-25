@@ -12,6 +12,8 @@
 
 ;;; Code:
 
+(elpaca benchmark-init)
+
 (elpaca compat)
 (elpaca no-littering)
 (elpaca vundo)

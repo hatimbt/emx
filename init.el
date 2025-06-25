@@ -53,6 +53,11 @@
 (elpaca-process-queues)
 (elpaca-wait)
 
+;; Benchmark
+(when init-file-debug
+  (require 'benchmark-init)
+  (add-hook 'after-init-hook #'benchmark-init/deactivate))
+
 ;; Load EmX init shim
 (load (expand-file-name "lisp/emx.el" emx-source-dir))
 
