@@ -49,8 +49,6 @@
   :bind (:map vertico-map
          ("<left>" . backward-char)
          ("<right>" . forward-char))
-
-
   :config
   (setopt vertico-cycle t)
   (setopt vertico-resize t)
@@ -128,10 +126,11 @@
 ;;
 ;; https://github.com/oantolin/orderless
 (use-package orderless
+  :demand t
   :config
   (setopt completion-styles '(orderless basic))
   (setopt completion-category-defaults nil)
-  (setopt completion-category-overrides '((file (styles partial-completion)))))
+  (setopt completion-category-overrides '((file (styles basic partial-completion)))))
 
 ;; marginalia.el - Marginalia in the minibuffer
 ;;
